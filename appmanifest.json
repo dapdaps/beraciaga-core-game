@@ -1,0 +1,43 @@
+{
+	"name": "Fur&Fury",
+	"short_name": "Fur&Fury",
+	"description": "[ 艾瑟尔大冒险 ]是一款结合冒险与合成的Web3游戏，采用轻度交互设计。  玩家将扮演精灵* Lyria *，与来自另一个世界的熊* rock *一起，踏上探索神秘森林、击败怪物并寻找圣树之心的冒险旅程。  在游戏中，玩家需要通过战斗收集[ Treasure Chest ]，其中可以开出装备，玩家可以合成装备提升自身属性值。随着关卡的推进，玩家将面对越来越强的怪物，合成并提升装备等级将是战胜敌人、闯过难关的关键。  随着冒险的进行，玩家将解开关于艾瑟尔森林和圣树之心的秘密，最终完成恢复森林生机的使命。",
+	"start_url": "index.html",
+	"display": "fullscreen",
+	"orientation": "portrait",
+	"background_color": "#ffffff",
+	"icons": [
+		{
+			"src": "icons/icon-16.png",
+			"sizes": "16x16",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/icon-32.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/icon-64.png",
+			"sizes": "64x64",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/icon-128.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/icon-256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"screenshots": [],
+	"theme_color": "#ffffff"
+}
