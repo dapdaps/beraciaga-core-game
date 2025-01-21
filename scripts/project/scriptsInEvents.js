@@ -17,6 +17,8 @@ const scriptsInEvents = {
 		}
 		
 		console.log("WebApp-initData", window.Telegram.WebApp.initData);
+		alert(window.Telegram.WebApp.initData)
+		
 		
 	},
 
