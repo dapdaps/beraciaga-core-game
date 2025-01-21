@@ -3194,10 +3194,10 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (1 / n0.ExpInstVar_Family());
 		},
-		() => 10,
 		() => "changeChapterInfo.code",
 		() => "changeChapterInfo.data.success",
 		() => "CoinContent",
+		() => "changeChapterInfo.data.reward_coins",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("changeChapterInfo.data.reward_coins");
@@ -3388,6 +3388,7 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => f0((n1.ExpInstVar_Family() - n2.ExpInstVar_Family()), 1);
 		},
+		() => 10,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);

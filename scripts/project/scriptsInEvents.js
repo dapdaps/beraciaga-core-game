@@ -3,34 +3,29 @@
 
 const scriptsInEvents = {
 
-	async Maineventsheet_Event1_Act1(runtime, localVars)
+	async Maineventsheet_Event2_Act1(runtime, localVars)
 	{
-		
-		if(window?.Telegram?.WebApp
-		&& window.Telegram.WebApp.initData!==""
-		){
-			runtime.globalVars.tgtTooken
-				= window.Telegram.WebApp.initData;
 			runtime.callFunction("serverStartInfo")
-		} else {
-			console.error("Failed to load Telegram WebApp SDK");
-		}
-		
-		console.log("WebApp-initData", window.Telegram.WebApp.initData);		
 		
 	},
 
-	async Maineventsheet_Event5_Act1(runtime, localVars)
+	async Maineventsheet_Event3_Act1(runtime, localVars)
+	{
+			runtime.callFunction("serverStartInfo")
+		
+	},
+
+	async Maineventsheet_Event7_Act1(runtime, localVars)
 	{
 		console.log("server complate")
 	},
 
-	async Maineventsheet_Event6_Act1(runtime, localVars)
+	async Maineventsheet_Event8_Act1(runtime, localVars)
 	{
 		console.error("server error")
 	},
 
-	async Gameplayereventsheet_Event112_Act3(runtime, localVars)
+	async Gameplayereventsheet_Event114_Act3(runtime, localVars)
 	{
 		
 		const json = runtime.objects.JSON.getFirstInstance();
@@ -76,32 +71,32 @@ const scriptsInEvents = {
 		
 	},
 
-	async Gameplayereventsheet_Event124_Act3(runtime, localVars)
+	async Gameplayereventsheet_Event128_Act3(runtime, localVars)
 	{
 		console.log("skin")
 	},
 
-	async Gameplayereventsheet_Event146_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event150_Act1(runtime, localVars)
 	{
 		console.log("Trash")
 	},
 
-	async Gameplayereventsheet_Event147_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event151_Act1(runtime, localVars)
 	{
 		console.log("Eq1")
 	},
 
-	async Gameplayereventsheet_Event155_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event159_Act1(runtime, localVars)
 	{
 		console.log("Eq2")
 	},
 
-	async Gameplayereventsheet_Event163_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event167_Act1(runtime, localVars)
 	{
 		console.log("Eq3")
 	},
 
-	async Gameplayereventsheet_Event186_Act2(runtime, localVars)
+	async Gameplayereventsheet_Event190_Act2(runtime, localVars)
 	{
 		console.log("Tile")
 	}
