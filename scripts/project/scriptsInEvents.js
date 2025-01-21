@@ -16,9 +16,7 @@ const scriptsInEvents = {
 			console.error("Failed to load Telegram WebApp SDK");
 		}
 		
-		console.log("WebApp-initData", window.Telegram.WebApp.initData);
-		alert(window.Telegram.WebApp.initData)
-		
+		console.log("WebApp-initData", window.Telegram.WebApp.initData);		
 		
 	},
 
