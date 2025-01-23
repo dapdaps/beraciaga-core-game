@@ -2844,6 +2844,8 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
+		() => "https://dev-api-game.beratown.app/api/hunter",
+		() => "query_id=AAEewcBQAAAAAB7BwFBLWNb-&user=%7B%22id%22%3A1354809630%2C%22first_name%22%3A%22Jaki%22%2C%22last_name%22%3A%22Yan%22%2C%22username%22%3A%22JakiYan%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fuf1k_tfN2BgFbpJfU50l8XNGjH2TnkwoMuEs80yZ0jk.svg%22%7D&auth_date=1736499157&signature=-EkNFXTBowu70_zKMpHV70hle-zsi8ORIWWpdq9pn20pg6NJ44BuAbx7SG1P2KyVx_NjUlqNKdq40szRDEfmDA&hash=df774bd008d0888c1bbf8438b557b21ca026a4333ff3c4b8f325eff2d18812ef",
 		() => "ParseServer",
 		() => "LoadLevelArray",
 		() => "beraciagaTgToken",
@@ -2942,16 +2944,82 @@ self.C3_ExpressionFuncs = [
 		() => 1.1,
 		() => "EqCheckN1",
 		() => 2,
-		() => "Common",
+		() => "Level",
+		() => 5,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (-f0());
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (f0() * 3);
+		},
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
-		() => "LevelContent",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
 		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpInstVar_Family() + n1.ExpInstVar_Family());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar_Family();
+		},
+		() => "monsters",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject("currentMonsterNames") - 1);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => ("MonsterPointerN" + ((f0("monsters") + 1)).toString());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".monster_id"));
+		},
+		() => "HealthOutline",
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".life"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".dmg"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".speed"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".defense"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".miss"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (1 / n0.ExpInstVar_Family());
+		},
+		() => "void",
+		() => 100,
+		() => 20,
+		() => "Common",
+		() => "LevelContent",
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -2987,17 +3055,13 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => and("images/", n0.ExpObject(6, (v1.GetValue() - 1), 0));
 		},
-		() => "player-walk",
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => n0.ExpObject(7, (v1.GetValue() - 1), 0);
+		},
 		() => "Walk",
-		() => 5,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => (-f0());
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => (f0() * 3);
-		},
+		() => "player-walk",
 		() => "MonsterTarget",
 		() => 3,
 		p => {
@@ -3037,6 +3101,10 @@ self.C3_ExpressionFuncs = [
 		() => "chestInfo.data.success",
 		p => {
 			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("chestInfo.data.total_box");
+		},
+		p => {
+			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("chestInfo.data.equipment.level");
 		},
 		p => {
@@ -3050,10 +3118,6 @@ self.C3_ExpressionFuncs = [
 		() => "EqCheckN2",
 		() => "EqCheckN3",
 		() => -1000,
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar_Family();
-		},
 		() => "deleteInfo.code",
 		() => "deleteInfo.data.success",
 		() => "equipments",
@@ -3156,10 +3220,6 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("userInfo.data.add_box_timestamp");
-		},
-		p => {
-			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("userInfo.data.coins");
 		},
 		() => "Scene",
@@ -3174,13 +3234,6 @@ self.C3_ExpressionFuncs = [
 			const n3 = p._GetNode(3);
 			return () => ((((n0.ExpObject()) < (((-n1.ExpObject()) * 2)) ? 1 : 0)) ? ((-n2.ExpObject())) : (n3.ExpObject()));
 		},
-		() => 100,
-		() => 20,
-		p => {
-			const n0 = p._GetNode(0);
-			const n1 = p._GetNode(1);
-			return () => (n0.ExpInstVar_Family() + n1.ExpInstVar_Family());
-		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => ((-50) * f0());
@@ -3190,10 +3243,6 @@ self.C3_ExpressionFuncs = [
 			return () => ((-200) * f0());
 		},
 		() => "Idle",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (1 / n0.ExpInstVar_Family());
-		},
 		() => "changeChapterInfo.code",
 		() => "changeChapterInfo.data.success",
 		() => "CoinContent",
@@ -3231,7 +3280,7 @@ self.C3_ExpressionFuncs = [
 		() => 150,
 		p => {
 			const n0 = p._GetNode(0);
-			return () => (n0.ExpInstVar_Family() * 0.2);
+			return () => (n0.ExpInstVar_Family() * 0.3);
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3253,55 +3302,15 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => C3.lerp(n0.ExpObject(), ((n1.ExpInstVar() * n2.ExpObject()) * 0.8), 0.3);
 		},
-		() => "Level",
-		() => "monsters",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject("currentMonsterNames") - 1);
-		},
-		() => "MonsterPointerN",
+		() => "Equipment",
+		() => -281492157629439,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0("monsters");
-		},
-		p => {
-			const n0 = p._GetNode(0);
 			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".monster_id"));
+			const n2 = p._GetNode(2);
+			const n3 = p._GetNode(3);
+			return () => ((f0(0, f1((n2.ExpInstVar() - n3.ExpInstVar()), 30)) / 30) * 360);
 		},
-		() => "HealthOutline",
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".life"));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".dmg"));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".speed"));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".defense"));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => n0.ExpObject((("currentMonsterNames." + (f1("monsters")).toString()) + ".miss"));
-		},
-		() => "void",
-		() => "Equipment",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => ((n0.ExpBehavior() + (360 / 30)) % 360);
-		},
-		() => -281492157629439,
 		() => "ChestContent",
 		p => {
 			const n0 = p._GetNode(0);
@@ -3311,10 +3320,6 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue()).toString();
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => (f0() * 0.001);
 		},
 		() => "EqTargetContent1",
 		() => "EqTargetContent2",
