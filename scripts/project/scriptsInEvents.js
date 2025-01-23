@@ -13,11 +13,11 @@ const scriptsInEvents = {
     // console.log("WebApp-initData", window?.Telegram?.WebApp?.initData);
 
     const search = new URLSearchParams(location.search);
-    const initData = search.get("initData");
-    initData = atob(initData);
+    let initData = search.get("initData");
+    initData = initData && atob(initData);
 
-    const api = search.get("api");
-    api = atob(api);
+    let api = search.get("api");
+    api = api && atob(api);
 
     if (!initData || !api) return;
 
