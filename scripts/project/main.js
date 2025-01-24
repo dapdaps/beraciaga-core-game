@@ -1,6 +1,25 @@
+
 // import "https://telegram.org/js/telegram-web-app.js?56"
-import "https://unpkg.com/vconsole@latest/dist/vconsole.min.js"
-var vConsole = new window.VConsole();
+// import "https://unpkg.com/vconsole@latest/dist/vconsole.min.js"
+// var vConsole = new window.VConsole();
+
+
+// function waitForMessage() {
+// 	return new Promise((resolve, reject) => {
+// 		const listener = (e) => {
+// 			const { data } = e;
+
+// 			// 检查消息类型
+// 			if (data?.type !== 'Beraciaga') return;
+
+// 			resolve(data);
+// 		};
+
+// 		window.addEventListener('message', listener);
+// 	});
+// }
+
+
 
 // window.waitMessageInstance =  awaitForMessage();
 
@@ -24,3 +43,5 @@ var vConsole = new window.VConsole();
 // 	runtime.callFunction("serverStartInfo");
 
 // })
+
+
