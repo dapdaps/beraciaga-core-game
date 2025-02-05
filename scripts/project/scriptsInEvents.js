@@ -23,12 +23,14 @@ const scriptsInEvents = {
     let api = search.get("api");
     api = api && atob(api);
 
+	console.log("initData:", initData, "api:", api);
+
     if (!initData || !api) return;
 
     runtime.globalVars.serverUrl = api + "/api/hunter";
     runtime.globalVars.tgtTooken = initData;
 
-    console.log("initData:", api, initData);
+    console.log("initData end:", api, initData);
     runtime.callFunction("serverStartInfo");
   },
 
