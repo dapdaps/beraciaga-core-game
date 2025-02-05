@@ -22,7 +22,7 @@ const scriptsInEvents = {
     await new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve();
-      }, 3000);
+      }, 0);
     });
 	console.log("serverUrl", runtime.globalVars.serverUrl);
     runtime.callFunction("serverStartInfo");
