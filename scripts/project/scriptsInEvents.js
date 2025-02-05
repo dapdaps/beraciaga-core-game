@@ -164,17 +164,17 @@ const scriptsInEvents = {
 		console.log("Eq1")
 	},
 
-	async Gameplayereventsheet_Event182_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event184_Act1(runtime, localVars)
 	{
 		console.log("Eq2")
 	},
 
-	async Gameplayereventsheet_Event190_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event194_Act1(runtime, localVars)
 	{
 		console.log("Eq3")
 	},
 
-	async Gameplayereventsheet_Event213_Act2(runtime, localVars)
+	async Gameplayereventsheet_Event219_Act2(runtime, localVars)
 	{
 		console.log("Tile")
 	}
