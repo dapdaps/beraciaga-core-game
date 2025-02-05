@@ -19,6 +19,7 @@ const scriptsInEvents = {
 
     runtime.globalVars.serverUrl = api + "/api/hunter";
     runtime.globalVars.tgtTooken = initData;
+	console.log("serverUrl", runtime.globalVars.serverUrl);
     runtime.callFunction("serverStartInfo");
   },
 
