@@ -5,68 +5,36 @@ function getHashParam(param) {
 }
 
 
-
 const scriptsInEvents = {
 
-	async Maineventsheet_Event2_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event2_Act3(runtime, localVars)
 	{
-		console.log("severStartInfo:start");
+		console.error("chestAddInfo")
 	},
 
-	async Maineventsheet_Event2_Act13(runtime, localVars)
+	async Gameplayereventsheet_Event4_Act3(runtime, localVars)
 	{
-		console.log("severStartInfo:end");
+		console.error("chestInfo")
 	},
 
-	async Maineventsheet_Event3_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event6_Act3(runtime, localVars)
 	{
-		console.log("gameplayer:start");
+		console.error("deleteInfo")
 	},
 
-	async Maineventsheet_Event4_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event8_Act3(runtime, localVars)
 	{
-		console.log("server complate")
+		console.error("changeEquipmentInfo")
 	},
 
-	async Maineventsheet_Event5_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event10_Act3(runtime, localVars)
 	{
-		console.error("server error")
+		console.error("craftEquipmentInfo")
 	},
 
-	async Maineventsheet_Event16_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event12_Act3(runtime, localVars)
 	{
-		
-	},
-
-	async Maineventsheet_Event18_Act1(runtime, localVars)
-	{
-		const search = new URLSearchParams(location.search);
-		let initData = search.get("initData");
-		initData = initData && atob(initData);
-		
-		let api = search.get("api");
-		api = api && atob(api);
-		
-		if (!initData || !api) return;
-		
-		runtime.globalVars.serverUrl = api + "/api/hunter";
-		runtime.globalVars.tgtTooken = initData;
-		runtime.callFunction("serverStartInfo");
-	},
-
-	async Maineventsheet_Event22(runtime, localVars)
-	{
-		
-		window.addEventListener('hashchange', function() {
-			const activated = getHashParam('activated');
-			if (activated === '1') {
-				console.log('Activated is 1');
-				runtime.callFunction("playStateFunc", Number(activated));
-			} else if(activated==="0"){
-				console.log('Activated is not 1');
-				runtime.callFunction("playStateFunc", Number(activated));
-			}
-		});
+		console.error("changeChapterInfo")
 	},
 
 	async Gameplayereventsheet_Event31_Act1(runtime, localVars)
@@ -81,12 +49,13 @@ const scriptsInEvents = {
 		const chapters =  jsonCopy.gameInfo.data.chapters;
 		const monsters =  jsonCopy.gameInfo.data.monsters;
 		
-		
 		const chapter = LevelOutline.instVars.chapterCount;
 		const sub_chapter = LevelOutline.instVars.levelCount;
 		
 		
 		const chapterData = chapters.find(item=>(item.chapter === chapter&&item.sub_chapter === sub_chapter));
+		
+		console.log(jsonCopy, chapter, sub_chapter, chapterData);
 		
 		if(chapterData!==undefined){
 		
@@ -157,44 +126,154 @@ const scriptsInEvents = {
 		
 	},
 
-	async Gameplayereventsheet_Event146_Act3(runtime, localVars)
+	async Gameplayereventsheet_Event147_Act3(runtime, localVars)
 	{
 		console.log("skin")
 	},
 
-	async Gameplayereventsheet_Event150_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event151_Act1(runtime, localVars)
 	{
 		const Chest = runtime.objects.Chest.getFirstInstance();
 		Chest.instVars.tickTime = new Date().getTime()*0.001;
 		
 	},
 
-	async Gameplayereventsheet_Event173_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event174_Act1(runtime, localVars)
 	{
 		console.log("Trash")
 	},
 
-	async Gameplayereventsheet_Event174_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event175_Act1(runtime, localVars)
 	{
 		console.log("Eq1")
 	},
 
-	async Gameplayereventsheet_Event184_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event185_Act1(runtime, localVars)
 	{
 		console.log("Eq2")
 	},
 
-	async Gameplayereventsheet_Event194_Act1(runtime, localVars)
+	async Gameplayereventsheet_Event195_Act1(runtime, localVars)
 	{
 		console.log("Eq3")
 	},
 
-	async Gameplayereventsheet_Event219_Act2(runtime, localVars)
+	async Gameplayereventsheet_Event220_Act2(runtime, localVars)
 	{
 		console.log("Tile")
-	}
+	},
 
+	async Maineventsheet_Event2_Act1(runtime, localVars)
+	{
+		console.log("severStartInfo:start");
+	},
+
+	async Maineventsheet_Event2_Act13(runtime, localVars)
+	{
+		console.log("severStartInfo:end");
+	},
+
+	async Maineventsheet_Event3_Act1(runtime, localVars)
+	{
+		console.log("gameplayer:start");
+	},
+
+	async Maineventsheet_Event4_Act1(runtime, localVars)
+	{
+		console.log("server complate")
+	},
+
+	async Maineventsheet_Event5_Act1(runtime, localVars)
+	{
+		console.error("server error")
+	},
+
+	async Maineventsheet_Event6_Act1(runtime, localVars)
+	{
+		console.log("loadtestdata:0");
+	},
+
+	async Maineventsheet_Event7_Act1(runtime, localVars)
+	{
+		console.log("loadtestdata:1");
+	},
+
+	async Maineventsheet_Event8_Act1(runtime, localVars)
+	{
+		console.log("loadtestdata:2");
+	},
+
+	async Maineventsheet_Event9_Act1(runtime, localVars)
+	{
+		console.log("loadtestdata:3");
+	},
+
+	async Maineventsheet_Event16_Act1(runtime, localVars)
+	{
+		
+	},
+
+	async Maineventsheet_Event18_Act1(runtime, localVars)
+	{
+		const search = new URLSearchParams(location.search);
+		let initData = search.get("initData");
+		initData = initData && atob(initData);
+		
+		let api = search.get("api");
+		api = api && atob(api);
+		
+		if (!initData || !api) return;
+		
+		runtime.globalVars.serverUrl = api + "/api/hunter";
+		runtime.globalVars.tgtTooken = initData;
+		runtime.callFunction("serverStartInfo");
+	},
+
+	async Maineventsheet_Event22(runtime, localVars)
+	{
+		
+		window.addEventListener('hashchange', function() {
+			const activated = getHashParam('activated');
+			if (activated === '1') {
+				console.log('Activated is 1');
+				runtime.callFunction("playStateFunc", Number(activated));
+			} else if(activated==="0"){
+				console.log('Activated is not 1');
+				runtime.callFunction("playStateFunc", Number(activated));
+			}
+		});
+	},
+
+	async Gameplayereventsheet_Event231_Act2(runtime, localVars)
+	{
+		setTimeout(()=>{
+		const json = runtime.objects.JSON.getFirstInstance();
+		const player = runtime.objects.Players.getFirstInstance();
+		const jsonCopy = json.getJsonDataCopy();
+		
+		Object.assign(player.instVars, JSON.parse(jsonCopy["player"]["iVars"]));
+		
+		});
+	},
+
+	async Gameplayereventsheet_Event230_Act2(runtime, localVars)
+	{
+		const json = runtime.objects.JSON.getFirstInstance();
+		const player = runtime.objects.Players.getFirstInstance();
+		
+		const jsonCopy = json.getJsonDataCopy();
+		
+		console.log("player.instVars",player.instVars.attackSpeed)
+		
+		jsonCopy.player = {
+			info:{},
+			iVars: JSON.stringify(player.instVars)
+		}
+		
+		
+		json.setJsonDataCopy(jsonCopy);
+		
+	}
 };
 
 self.C3.ScriptsInEvents = scriptsInEvents;
-

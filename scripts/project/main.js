@@ -4,7 +4,6 @@
 // var vConsole = new window.VConsole();
 
 
-
 // function waitForMessage() {
 // 	return new Promise((resolve, reject) => {
 // 		const listener = (e) => {
